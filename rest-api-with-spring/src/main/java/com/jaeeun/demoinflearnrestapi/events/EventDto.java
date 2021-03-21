@@ -1,17 +1,15 @@
 package com.jaeeun.demoinflearnrestapi.events;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Builder @NoArgsConstructor @AllArgsConstructor //기본 생성자, 모든 아규먼트 갖는 생성자 둘다 만들기위함
-@Getter @Setter @EqualsAndHashCode(of ="id")
-@Entity
-public class Event {
-
-    @Id @GeneratedValue
-    private Integer id;
+@Builder @NoArgsConstructor @AllArgsConstructor
+@Data
+public class EventDto {
     private String name;
     private String description;
     private LocalDateTime beginEnrollmentDateTime;
@@ -22,11 +20,4 @@ public class Event {
     private int basePrice; // (optional)
     private int maxPrice; // (optional)
     private int limitOfEnrollment;
-    private Boolean offline;
-    private Boolean free;
-    @Enumerated(EnumType.STRING)
-    private EventStatus eventStatus = EventStatus.DRAFT;
-
-
-
 }
